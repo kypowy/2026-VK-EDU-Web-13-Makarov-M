@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.css">
+        <link rel="stylesheet" href="/static/css/style.css">
+        <title>AskPupkin - Ask Everything</title>
+    </head>
+    <body class="d-flex flex-column">
+        <header class = "main-header">
+            <nav class = "header-content container">
+              <a href="index.html">
+                <h1>AskPupkin</h1>
+              </a>  
+              <div class = "search" style="max-width: 400px;" >
+                <form class="d-flex gap-2">
+                    <input id="search" type = "search" placeholder="Try find already asked questions" class="rounded-pill">
+                    <button type="button" class="theme-primary btn-solid rounded-pill">
+                        Find
+                    </button>
+                </form>
+              </div>
+              <div class="user-box">
+                <img class="avatar-img" src="https://github.com/kypowy.png" alt="avatar">
+                <div class = "user-box-text">
+                    <a id="user-name" href=""><h2>kypowy</h2></a>
+                    <div>
+                        <a href="" class = "settings-ref">settings</a>
+                        <a href="" class = "logout-ref">log out</a>
+                    </div>
+                </div>
+              </div>
+            </nav>
+        </header>
+        <div class = "container flex-grow-1 py-3">
+            <div class="row g-4 g-xl-5">
+                    <main class="col-12 col-lg-8 col-xl-9 flex-column d-flex">
+                        <section class="d-flex gap-4 main-question flex-row mb-4">
+                            <div class="d-flex flex-column gap-2">
+                                <img src="https://github.com/kypowy.png" class="card-img-top avatar-img" alt="avatar">
+                                <div class="d-flex flex-column align-items-center">
+                                    <button class="btn btn-sm btn-outline-success mb-1">↑</button>
+                                        <span>12222</span>
+                                    <button class="btn btn-sm btn-outline-danger mt-1">↓</button>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <h4 class="card-title">Card title</h4>
+                                <p class="card-text">Some quick example text to build on the car
+                                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eaque recusandae neque, sequi aperiam consequuntur iusto. Consequuntur maiores adipisci animi est nihil, tempora aliquid, similique ullam molestias iste amet! Necessitatibus, laborum?
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, impedit. Ad possimus dignissimos reiciendis aut aliquam aspernatur hic rerum quaerat recusandae? Quaerat modi neque blanditiis, laborum veniam adipisci eius architecto. d title and make up the bulk of the card’s content.</p>
+                                <div class="card-bottom d-flex justify-content-between align-items-center">
+                                    <div class="card-tags d-flex gap-2 align-items-center">
+                                        Tags:
+                                        <a href="">cpp</a>
+                                        <a href="">C++</a>
+                                        <a href="">bmstu</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <!-- ОТВЕТ -->
+                        <section class="card flex-row mb-4">
+                            <div class="d-flex flex-column gap-2">
+                                <img src="https://github.com/kypowy.png" class="card-img-top avatar-img" alt="avatar">
+                                <div class="d-flex flex-column align-items-center">
+                                    <button class="btn btn-sm btn-outline-success mb-1">↑</button>
+                                        <span>12</span>
+                                    <button class="btn btn-sm btn-outline-danger mt-1">↓</button>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text">Some quick example tex Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique harum ab error veniam atque beatae aspernatur voluptatem officiis maiores sint debitis architecto facere incidunt, mollitia ullam eveniet necessitatibus, natus ad.t to build on the card title and make up the bulk of the card’s content.</p>
+                                <div class="card-bottom d-flex justify-content-between align-items-center">
+                                    <div class="form-field">
+                                        <input type="checkbox" id="checkLabel" class="check" />
+                                        <label for="checkLabel">Correct!</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <!-- ОТВЕТ -->
+                        <section class="card flex-row mb-4">
+                            <div class="d-flex flex-column gap-2">
+                                <img src="https://github.com/kypowy.png" class="card-img-top avatar-img" alt="avatar">
+                                <div class="d-flex flex-column align-items-center">
+                                    <button class="btn btn-sm btn-outline-success mb-1">↑</button>
+                                        <span>12</span>
+                                    <button class="btn btn-sm btn-outline-danger mt-1">↓</button>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text">Some quick example tex Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique harum ab error veniam atque beatae aspernatur voluptatem officiis maiores sint debitis architecto facere incidunt, mollitia ullam eveniet necessitatibus, natus ad.t to build on the card title and make up the bulk of the card’s content.</p>
+                                <div class="card-bottom d-flex justify-content-between align-items-center">
+                                    <div class="form-field">
+                                        <input type="checkbox" id="checkLabel" class="check" />
+                                        <label for="checkLabel">Correct!</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>      
+                        <!-- ПОЛЕ ВВОДА ОТВЕТА -->
+                        <div class="answer-form">      
+                            <div class="form-field d-flex flex-column gap-2">
+                                <textarea class="form-control" id="fieldTextarea" rows="3" placeholder="Enter your answer here..."></textarea>
+                                <div class="d-flex justify-content-between">
+                                    <div class="form-text">
+                                            Observe the rules of propriety in your responses.
+                                    </div>
+                                    <button type="button" class="btn btn-success theme-primary btn-solid rounded">
+                                        Answer
+                                    </button>
+                                </div>
+                            </div>            
+                        </div>
+                    </main>
+                    <aside class="col-12 col-lg-3">
+                        <div class = "aside-card">
+                            <div>
+                                <h3>Popular Tags</h3>
+                                <div class="popular-tags">
+                                    <a href="">demo</a>
+                                    <a href="">tags</a>
+                                    <a href="">lists</a>
+                                    <a href="">some</a>
+                                    <a href="">dota2</a>
+                                    <a href="">another</a>
+                                    <a href="">some</a>
+                                    <a href="">parts</a>
+                                </div>
+                            </div>
+                            <div>
+                                <h3>Best Members</h3>
+                                <ul>
+                                    <li><a href="#">Kypowyn</a></li>
+                                    <li><a href="#">WynalKyp</a></li>
+                                    <li><a href="#">doge3310</a></li>
+                                    <li><a href="#">VicktorTheTourist</a></li>
+                                    <li><a href="#">PupkinTOP2007</a></li>
+                                    <li><a href="#">prapor322</a></li>
+                                    <li><a href="#">No name</a></li>
+                                    <li><a href="#">SerjFootball</a></li>
+                                    <li><a href="#">BorisTheEnd</a></li>
+                                    <li><a href="#">AshotHookShot</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </aside>
+            </div>
+        </div>
+        <footer class="d-flex justify-content-center">
+            <h4 class="mb-0">© 2026 t.me/kypowyn</h4>
+        </footer>
+            <script src="../static/bootstrap/js/bootstrap.min.js"></script>
+    </body>
+</html>
