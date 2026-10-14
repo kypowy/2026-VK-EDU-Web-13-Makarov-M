@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./static/bootstrap/css/bootstrap.css">
+        <link rel="stylesheet" href="./static/css/style.css">
+        <link rel="icon" href="static/img/favicon.png" type="image/png">
+        <title>AskPupkin - Answers to all the questions in the world</title>
+    </head>
+    <body class="d-flex flex-column">
+        <header class = "main-header">
+            <nav class = "header-content container">
+              <a href="index.html">
+                <h1>AskPupkin</h1>
+              </a>  
+              <div class = "search" style="max-width: 400px;" >
+                <form class="d-flex gap-2">
+                    <input id="search" type = "search" placeholder="Try find already asked questions" class="rounded-pill">
+                    <button type="button" class="theme-primary btn-solid rounded-pill">
+                        Find
+                    </button>
+                </form>
+              </div>
+                <!-- Не авторизован -->
+            <div class="user-box">
+                    <a href="#" class="btn btn-outline-primary btn-sm">Log in</a>
+                    <a href="#" class="btn btn-light btn-sm">Sign up</a>
+            </div>
+            </nav>
+        </header>
+        <div class = "container flex-grow-1 py-3">
+            <div class="row g-4 g-xl-5">
+                    <main class="col-12 col-lg-8 col-xl-9 flex-column d-flex">
+                        <div class="title">
+                            <h2>Tag: anytag</h2>
+                            <a href="">Hot Questions</a>
+                            <a href="question.html" class="btn btn-success theme-success">Ask!
+                            </a>
+                        </div>
+                        <!-- КАРТОЧКА -->
+                        <section class="card flex-row mb-4">
+                            <div class="d-flex flex-column gap-2">
+                                <img src="https://github.com/kypowy.png" class="card-img-top avatar-img" alt="avatar">
+                                <div class="d-flex flex-column align-items-center">
+                                    <button class="btn btn-sm btn-outline-success mb-1">↑</button>
+                                        <span>12222</span>
+                                    <button class="btn btn-sm btn-outline-danger mt-1">↓</button>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <h4 class="card-title"> <a href="postInfo.html">Card title</a></h4>
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
+                                <div class="card-bottom d-flex justify-content-between align-items-center">
+                                    <a href="">answer(3)</a>
+                                    <div class="card-tags d-flex gap-2 align-items-center">
+                                        Tags:
+                                        <a href="">cpp</a>
+                                        <a href="">C++</a>
+                                        <a href="">bmstu</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <!-- КАРТОЧКА -->
+                        <section class="card flex-row mb-4">
+                            <div class="d-flex flex-column gap-2">
+                                <img src="https://github.com/kypowy.png" class="card-img-top avatar-img" alt="avatar">
+                                <div class="d-flex flex-column align-items-center">
+                                    <button class="btn btn-sm btn-outline-success mb-1">↑</button>
+                                        <span>12222</span>
+                                    <button class="btn btn-sm btn-outline-danger mt-1">↓</button>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <h4 class="card-title"> <a href="postInfo.html">Card title</a></h4>
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
+                                <div class="card-bottom d-flex justify-content-between align-items-center">
+                                    <a href="">answer(3)</a>
+                                    <div class="card-tags d-flex gap-2 align-items-center">
+                                        Tags:
+                                        <a href="">cpp</a>
+                                        <a href="">C++</a>
+                                        <a href="">bmstu</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                         <!-- КАРТОЧКА -->
+                        <section class="card flex-row mb-4">
+                            <div class="d-flex flex-column gap-2">
+                                <img src="https://github.com/kypowy.png" class="card-img-top avatar-img" alt="avatar">
+                                <div class="d-flex flex-column align-items-center">
+                                    <button class="btn btn-sm btn-outline-success mb-1">↑</button>
+                                        <span>12222</span>
+                                    <button class="btn btn-sm btn-outline-danger mt-1">↓</button>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <h4 class="card-title"> <a href="postInfo.html">Card title</a></h4>
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
+                                <div class="card-bottom d-flex justify-content-between align-items-center">
+                                    <a href="">answer(3)</a>
+                                    <div class="card-tags d-flex gap-2 align-items-center">
+                                        Tags:
+                                        <a href="">cpp</a>
+                                        <a href="">C++</a>
+                                        <a href="">bmstu</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>              
+                        <!-- ПАГИНАЦИЯ -->
+                        <nav id="pagination" aria-label="Page navigation" class=" mb-4" >
+                            <ul class="pagination">
+                                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                            </ul>
+                        </nav>
+                    </main>
+                    <aside class="col-12 col-lg-3">
+                        <div class = "aside-card">
+                            <div>
+                                <h3>Popular Tags</h3>
+                                <div class="popular-tags">
+                                   <a href="tag.html">demo</a>
+                                    <a href="tag.html">tags</a>
+                                    <a href="tag.html">lists</a>
+                                    <a href="tag.html">some</a>
+                                    <a href="tag.html">dota2</a>
+                                    <a href="tag.html">another</a>
+                                    <a href="tag.html">some</a>
+                                    <a href="tag.html">parts</a>
+                                </div>
+                            </div>
+                            <div>
+                                <h3>Best Members</h3>
+                                <ul>
+                                    <li><a href="#">Kypowyn</a></li>
+                                    <li><a href="#">WynalKyp</a></li>
+                                    <li><a href="#">doge3310</a></li>
+                                    <li><a href="#">VicktorTheTourist</a></li>
+                                    <li><a href="#">PupkinTOP2007</a></li>
+                                    <li><a href="#">prapor322</a></li>
+                                    <li><a href="#">No name</a></li>
+                                    <li><a href="#">SerjFootball</a></li>
+                                    <li><a href="#">BorisTheEnd</a></li>
+                                    <li><a href="#">AshotHookShot</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </aside>
+            </div>
+        </div>
+        <footer class="d-flex justify-content-center">
+            <h4 class="mb-0">© 2026 t.me/kypowyn</h4>
+        </footer>
+            <script src="./static/bootstrap/js/bootstrap.min.js"></script>
+    </body>
+</html>

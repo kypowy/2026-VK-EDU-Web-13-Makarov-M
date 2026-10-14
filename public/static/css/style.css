@@ -1,0 +1,154 @@
+*{box-sizing: border-box;}
+body{
+    box-sizing: border-box;
+    min-height: 100vh;
+    display: flex;
+    background-color: white;
+}
+.main-header{
+    background-color:#dab5ff;
+}
+.main-header a{
+    text-decoration: none;
+}
+.header-content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    padding: 12px 0;
+    margin: 0  auto;
+    flex-wrap: wrap;
+
+}
+.avatar-img{
+    width: 50px;
+    height: 50px;
+    border-radius: 90px;
+}
+.user-box{
+    margin: 5px;
+    padding: 5px;
+    border-radius: 12px;
+    background-color: #bd8aff;
+    align-items: center;
+    display: flex;
+    gap: 5px;
+}
+.user-box h2{
+    margin: 0;
+}
+.user-box a{
+    text-decoration: underline;
+}
+#user-name{
+    text-decoration: none
+
+}
+.popular-tags{
+    line-height: 2rem;
+}
+.popular-tags a{
+    display: inline-block;
+    text-decoration: none;
+    font-size: large; 
+    background-color: #6836ff;
+    color: white;
+    padding: 2px;
+    border-radius: 99px;
+    margin: 5px;
+    border-color: black;
+}
+.popular-tags a:hover{
+    
+    background-color:#c99fff;
+    color: black;
+    
+}
+.title{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.card{
+    width: 100%;
+    max-width: 100%;
+    padding: 12px;
+    border: 1px solid #335C67;
+    border-radius: 12px;
+}
+main .card{
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1rem;
+}
+
+footer{
+    background-color: #bd8aff;
+    padding: 16px;
+    margin-top: auto;
+}
+h1{
+    color: white;
+}
+h1:hover{
+    color: #8f66ff
+}
+.search{
+    flex: 1 1 260px;
+    max-width: 400px;
+}
+.search form{
+    width: 100%;
+}
+.search input{
+    flex: 1;
+    min-width: 0;
+}
+@media (max-width: 750px){
+    .header-content{
+        justify-content: center;
+    }
+    .search{
+        order: 3;
+        flex-basis: 100%;
+        max-width: none;
+    }
+    .user-box{
+        order: 2;
+    }
+}
+.aside-card{
+    border: 1px solid;
+    border-radius: 12px;
+    padding: 16px;
+}
+.aside-card h3{
+    margin-top: 0;
+    font-size: 1.25rem;
+}
+.aside-card > div:not(:last-child) {
+    margin-bottom: 20px;
+}
+.aside-card li {
+    margin-bottom: 6px;
+}
+#pagination{
+    margin-left: auto;
+    margin-right: auto;
+}
+.question-form{
+    border: 1px solid;
+    border-color: #335C67;
+    border-radius: 12px;
+    padding: 16px;
+}
+.main-question{
+    border-bottom: 2px #335C67 solid;
+    padding: 12px;
+}
+.answer-form{
+    border-top: 2px #335C67 solid;
+    padding: 16px;
+}
