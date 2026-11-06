@@ -1,0 +1,33 @@
+{% extends "questions/layout/base.html" %}
+{% load static %}
+
+{% block content%}
+<main class="col-12 col-lg-8 col-xl-9 flex-column d-flex">
+    <div class="title">
+                            <h2>New Question</h2>
+                        </div>
+                        <div class="question-form">
+                            <form action="ask">
+                                <div class="mb-3">
+                                    <label for="formGroupExampleInput" class="form-label">Title</label>
+                                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="The Ultimate Question of Life, the Universe, and Everything">
+                                </div>
+                                <div class="form-field">
+                                    <label for="fieldTextarea" class="form-label">Text</label>
+                                    <textarea class="form-control" id="fieldTextarea" rows="3" placeholder="Why 42 not 44?"></textarea>
+                                    <div class="form-text">
+                                        Be sure to include relevant details.
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="formGroupExampleInput2" class="form-label">Tags</label>
+                                    <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="C# C++ SQL">
+                                </div>
+                                <button type="button" class="btn btn-success theme-primary btn-solid rounded">
+                                    ASK!
+                                </button>
+                            </form>
+                        </div>
+
+</main>
+{% endblock %}

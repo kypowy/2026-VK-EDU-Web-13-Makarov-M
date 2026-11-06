@@ -1,0 +1,20 @@
+{% extends "questions/layout/base.html" %}
+{% load static %}
+
+{% block content%}
+<main class="col-12 col-lg-8 col-xl-9 flex-column d-flex">
+    <div class="title">
+        <h2>Hot Questions</h2>
+        <a href="{%url 'index'%}">New Questions</a>
+        <a href="{%url 'ask'%}" class="btn btn-success theme-success">Ask!
+        </a>
+    </div>
+    <!-- КАРТОЧКА -->
+    {% for question in questions %}
+    {% include 'questions/partials/question.html' with obj=question %}
+    {% endfor %}
+
+    <!-- ПАГИНАЦИЯ -->
+    {% include 'questions/partials/pagination.html' %}
+</main>
+{% endblock %}

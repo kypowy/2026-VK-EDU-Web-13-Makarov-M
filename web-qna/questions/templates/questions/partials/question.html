@@ -1,0 +1,23 @@
+<section class="card flex-row mb-4">
+        <div class="d-flex flex-column gap-2">
+            <img src="https://github.com/kypowy.png" class="card-img-top avatar-img" alt="avatar">
+            <div class="d-flex flex-column align-items-center">
+                <button class="btn btn-sm btn-outline-success mb-1">↑</button>
+                    <span>{{question.rating}}</span>
+                <button class="btn btn-sm btn-outline-danger mt-1">↓</button>
+            </div>
+        </div>
+        <div class="card-body">
+            <h4 class="card-title"> <a href="{% url 'question' obj.id %}">{{question.title}}</a></h4>
+            <p class="card-text">{{question.text}}</p>
+            <div class="card-bottom d-flex justify-content-between align-items-center">
+                <a href="{% url 'question' obj.id %}">answer({{question.ans_count}})</a>
+                <div class="card-tags d-flex gap-2 align-items-center">
+                    Tags:
+                    {% for tag in question.tags %}
+                        <a href="{% url 'tag' tag %}">{{tag}}</a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div> 
+    </section>
