@@ -1,0 +1,94 @@
+{% extends "questions/layout/base.html" %}
+{% load static %}
+
+{% block content %}
+<main class="col-12 col-lg-8 col-xl-9 flex-column d-flex">
+
+    {# Текущий профиль #}
+    <div class="card mb-3">
+        <h2 class="mb-3">Current profile</h2>
+
+        <div class="d-flex align-items-center gap-3 mb-3">
+            {% if user.profile.avatar %}
+                <img src="{{ user.profile.avatar.url }}"
+                     alt="avatar"
+                     class="avatar-img">
+            {% else %}
+                <img src="https://github.com/kypowy.png"
+                     alt="avatar"
+                     class="avatar-img">
+            {% endif %}
+
+            <div>
+                <h3 class="mb-1">{{ user.username }}</h3>
+                {% if user.email %}
+                    <div class="text-muted">{{ user.email }}</div>
+                {% endif %}
+            </div>
+        </div>
+
+        <div>
+            <strong>About:</strong>
+            <p class="mb-0">
+                {{ user.profile.bio|default:"No bio yet." }}
+            </p>
+        </div>
+    </div>
+
+    {# Форма редактирования #}
+    <div class="card">
+        <h2 class="mb-3">Edit profile</h2>
+
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <div class="mb-3">
+                <label for="id_username" class="form-label">Username</label>
+                <input type="text"
+                       name="username"
+                       id="id_username"
+                       class="form-control"
+                       value="{{ user.username }}"
+                       autocomplete="username"
+                       required>
+            </div>
+
+            <div class="mb-3">
+                <label for="id_email" class="form-label">Email</label>
+                <input type="email"
+                       name="email"
+                       id="id_email"
+                       class="form-control"
+                       value="{{ user.email }}"
+                       autocomplete="email"
+                       required>
+            </div>
+
+            <div class="mb-3">
+                <label for="id_bio" class="form-label">About</label>
+                <textarea name="bio"
+                          id="id_bio"
+                          class="form-control"
+                          rows="3"
+                          placeholder="Tell something about yourself">{{ user.profile.bio|default:"" }}</textarea>
+            </div>
+
+            <div class="mb-3">
+                <label for="id_avatar" class="form-label">Avatar</label>
+                <input type="file"
+                       name="avatar"
+                       id="id_avatar"
+                       class="form-control"
+                       accept="image/*">
+                <div class="form-text">Leave empty to keep the current avatar.</div>
+            </div>
+
+            <div class="d-flex gap-2">
+                <button type="submit" class="btn btn-primary">Save</button>
+                <a href="{% url 'index' %}" class="btn btn-light">Cancel</a>
+            </div>
+        </form>
+    </div>
+
+</main>
+{% endblock %}

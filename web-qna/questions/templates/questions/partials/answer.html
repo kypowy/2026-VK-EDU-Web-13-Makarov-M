@@ -1,0 +1,19 @@
+<section class="card flex-row mb-4">
+                    <div class="d-flex flex-column gap-2">
+                        <img src="https://github.com/kypowy.png" class="card-img-top avatar-img" alt="avatar">
+                        <div class="d-flex flex-column align-items-center">
+                            <button class="btn btn-sm btn-outline-success mb-1">↑</button>
+                                <span>{{answer.rating}}</span>
+                            <button class="btn btn-sm btn-outline-danger mt-1">↓</button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">{{answer.text}}</p>
+                        <div class="card-bottom d-flex justify-content-between align-items-center">
+                            <div class="form-field">
+                                <input type="checkbox" id="checkLabel" class="check" />
+                                <label for="checkLabel">Correct!</label>
+                            </div>
+                        </div>
+                    </div>
+                </section>

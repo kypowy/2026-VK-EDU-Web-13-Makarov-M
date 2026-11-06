@@ -1,0 +1,88 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="ru">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{% static "questions/bootstrap/css/bootstrap.min.css" %}">
+        <link rel="stylesheet" href="{% static "questions/css/style.css" %}">
+        <link rel="icon" href="{% static 'questions/img/favicon.png' %}?" type="image/png">
+        <title>AskPupkin - Answers to all the questions in the world</title>
+    </head>
+    <body class="d-flex flex-column">
+        <header class = "main-header">
+            <nav class = "header-content container">
+              <a href="{%url 'index'%}">
+                <h1>AskPupkin</h1>
+              </a>  
+              <div class = "search" style="max-width: 400px;" >
+                <form class="d-flex gap-2">
+                    <input id="search" type = "search" placeholder="Try find already asked questions" class="rounded-pill">
+                    <button type="button" class="theme-primary btn-solid rounded-pill">
+                        Find
+                    </button>
+                </form>
+              </div>
+              {%if user.is_authenticated%}
+              <div class="user-box">
+                <img class="avatar-img" src="https://github.com/kypowy.png" alt="avatar">
+                <div class = "user-box-text">
+                    <a id="user-name" href=""><h2>kypowy</h2></a>
+                    <div>
+                        <a href="{% url "profile" %}" class = "settings-ref">settings</a>
+                        <a href="" class = "logout-ref">log out</a>
+                    </div>
+                </div>
+              </div>
+              {% else %}
+            <div class="user-box">
+                    <a href="{% url "login" %}" class="btn btn-outline-primary btn-sm">Log in</a>
+                    <a href="{% url "signup" %}" class="btn btn-light btn-sm">Sign up</a>
+            </div> 
+            {% endif %}
+            </nav>
+        </header>
+        <div class = "container flex-grow-1 py-3">
+            <div class="row g-4 g-xl-5">
+                    {% block content %}
+                    {% endblock %}
+                    <aside class="col-12 col-lg-3">
+                        <div class = "aside-card">
+                            <div>
+                                <h3>Popular Tags</h3>
+                                <div class="popular-tags">
+                                    <a href="{% url 'tag' 'demo' %}">demo</a>
+                                    <a href="{% url 'tag' 'tags' %}">tags</a>
+                                    <a href="{% url 'tag' 'lists' %}">lists</a>
+                                    <a href="{% url 'tag' 'some' %}">some</a>
+                                    <a href="{% url 'tag' 'dota2' %}">dota2</a>
+                                    <a href="{% url 'tag' 'another' %}">another</a>
+                                    <a href="{% url 'tag' 'parts' %}">parts</a>
+                                </div>
+                            </div>
+                            <div>
+                                <h3>Best Members</h3>
+                                <ul>
+                                    <li><a href="#">Kypowyn</a></li>
+                                    <li><a href="#">WynalKyp</a></li>
+                                    <li><a href="#">doge3310</a></li>
+                                    <li><a href="#">VicktorTheTourist</a></li>
+                                    <li><a href="#">PupkinTOP2007</a></li>
+                                    <li><a href="#">prapor322</a></li>
+                                    <li><a href="#">No name</a></li>
+                                    <li><a href="#">SerjFootball</a></li>
+                                    <li><a href="#">BorisTheEnd</a></li>
+                                    <li><a href="#">AshotHookShot</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </aside>
+            </div>
+        </div>
+        <footer class="d-flex justify-content-center">
+            <h4 class="mb-0">© 2026 t.me/kypowyn</h4>
+        </footer>
+            <script src="{% static "questions/bootstrap/js/bootstrap.min.js" %}"></script>
+    </body>
+</html>
