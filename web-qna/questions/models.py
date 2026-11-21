@@ -5,7 +5,6 @@ from django.db.models import Count, Subquery, OuterRef, IntegerField
 
 class QuestionManager(models.Manager):
     def _for_cards(self):
-        # Создаем подзапрос для подсчета ответов
         answer_count_subquery = Answer.objects.filter(
             question=OuterRef('pk')
         ).values('question').annotate(
