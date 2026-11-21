@@ -9,9 +9,9 @@
                     </div>
                     <div class="card-body">
                         <h4 class="card-title">{{question.title}}</h4>
-                        <p class="card-text">{{question.text}} </p>
-                                {% for tag in question.tags %}
-                                    <a href="{% url 'tag' tag %}">{{tag}}</a>
+                        <p class="card-text">{{question.description}} </p>
+                                {% for qt in question.questiontag.all %}
+                                    <a href="{% url 'tag' qt.tag.slug %}">{{ qt.tag.name }}</a>
                                 {% endfor %}
                             </div>
                 </section>

@@ -52,13 +52,11 @@
                             <div>
                                 <h3>Popular Tags</h3>
                                 <div class="popular-tags">
-                                    <a href="{% url 'tag' 'demo' %}">demo</a>
-                                    <a href="{% url 'tag' 'tags' %}">tags</a>
-                                    <a href="{% url 'tag' 'lists' %}">lists</a>
-                                    <a href="{% url 'tag' 'some' %}">some</a>
-                                    <a href="{% url 'tag' 'dota2' %}">dota2</a>
-                                    <a href="{% url 'tag' 'another' %}">another</a>
-                                    <a href="{% url 'tag' 'parts' %}">parts</a>
+                                    {% for tag in popular_tags %}
+                                        <a href="{% url 'tag' tag.slug %}">{{ tag.name }}</a>
+                                    {% empty %}
+                                        <span class="text-muted">Пока нет тэгов</span>
+                                    {% endfor %}
                                 </div>
                             </div>
                             <div>
