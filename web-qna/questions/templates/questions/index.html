@@ -12,6 +12,10 @@
     <!-- КАРТОЧКА -->
     {% for question in questions %}
     {% include 'questions/partials/question.html' with obj=question %}
+    {% empty %}
+        <div class="alert alert-info mt-3">
+            Пока нет ни одного вопроса. Станьте первым, кто задаст вопрос!
+        </div>
     {% endfor %}
 
     <!-- ПАГИНАЦИЯ -->

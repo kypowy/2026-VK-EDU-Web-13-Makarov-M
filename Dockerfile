@@ -1,12 +1,16 @@
-FROM python
+FROM python:3.12-slim
 
 WORKDIR /app
 
-COPY requirements.txt .
+# Отключаем создание .pyc и буферизацию вывода
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
 
+COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY web-qna .
+# ВАЖНО: Копируем содержимое папки web-qna в /app
+COPY web-qna . 
 
 EXPOSE 8000
 
