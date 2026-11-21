@@ -5,25 +5,14 @@
 - question.html - страница для создания вопроса. На неё можно перейти с index.html нажав на кнопку ASK.
 
   
-# ДЗ2. Остальные страницы + django
+# ДЗ_3
 ## Локальный запуск
-0. в каталоге \web-qna переименуйте .env.example в .env, либо же создайте свой .env по примеру
-1. Создайте виртуальное окружение и активируйте его:
-   python -m venv .venv
-   .venv\Scripts\activate
-
-2. Установите зависимости:
-   pip install -r requirements.txt
-
-3. Запустите сервер:
-   python manage.py runserver
-
-4. Откройте в браузере: http://127.0.0.1:8000
 
 ## Запуск через Docker Compose
 
 0. в каталоге \web-qna переименуйте .env.example в .env, либо же создайте свой .env по примеру
 1. Выполните команду:
    docker compose up --build
-
-2. Откройте в браузере: http://127.0.0.1:8000
+2. Заполните БД командой docker compose exec web python manage.py fill_db [ratio] //вместо ratio подставьте значение
+3. Приведите БД к согласованному состоянию командой docker compose exec web python manage.py recalc_ratings 
+4. Откройте в браузере: http://127.0.0.1:8000
