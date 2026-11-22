@@ -9,4 +9,5 @@ urlpatterns = [
     path('question/<int:question_id>/', views.post, name='question'),
     path('tag/<str:tag_name>/', views.tag, name='tag'),
     path('ask/', views.ask, name='ask'),
+    
 ]

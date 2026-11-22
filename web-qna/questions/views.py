@@ -1,6 +1,8 @@
-from django.shortcuts import render , get_object_or_404
+from django.shortcuts import render , get_object_or_404, redirect
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.http import Http404
+from django.contrib.auth.decorators import login_required
+from .forms import QuestionForm, AnswerForm
 from .models import *
 
 def paginate(objects_list, request, per_page=10):
@@ -44,11 +46,18 @@ def post(request, question_id):
     question = get_object_or_404(Question.objects.detail(), pk=question_id)
     answers = Answer.objects.for_question(question)
     page_obj = paginate(answers, request, per_page=5)
+    if request.method == 'POST':
+        form = AnswerForm(request.POST, user=request.user, question=question)
+        if form.is_valid():
+            question = form.save()
+    else:
+        form = AnswerForm(user=request.user, question=question)
 
-    return render(request, "questions/postinfo.html", {
+    return render(request, "questions/postinfo.html", context={
         "question": question,
         "answers": page_obj.object_list,
         "page_obj": page_obj,
+        "form" : form,
     })
 
 
@@ -65,5 +74,16 @@ def tag(request, tag_name):
         "page_obj": page_obj,
     })
 
+@login_required
 def ask(request):
-    return render(request, 'questions/ask_question.html')
+    
+    if request.method == 'POST':
+        form = QuestionForm(request.POST, user=request.user)
+        if form.is_valid():
+            question = form.save()
+            return redirect(question.get_absolute_url())
+    else:
+        form = QuestionForm(user=request.user)        
+    return render(request, 'questions/ask_question.html', context={'form' : form})
+
+

@@ -1,6 +1,11 @@
+{% load static %}
 <section class="card flex-row mb-4">
                     <div class="d-flex flex-column gap-2">
-                        <img src="https://github.com/kypowy.png" class="card-img-top avatar-img" alt="avatar">
+                        {% if answer.author.avatar %}
+                            <img src="{{ answer.author.avatar.url }}" class="card-img-top avatar-img" alt="avatar">
+                        {% else %}
+                            <img src="{% static 'questions/img/default-avatar.png' %}" class="card-img-top avatar-img" alt="avatar">
+                        {% endif %}
                         <div class="d-flex flex-column align-items-center">
                             <button class="btn btn-sm btn-outline-success mb-1">↑</button>
                                 <span>{{answer.rating}}</span>
