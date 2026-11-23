@@ -11,28 +11,41 @@ def logout(request):
     auth.logout(request)
     return HttpResponseRedirect(reverse('index'))
 
+from django.contrib.auth import authenticate, login as auth_login
+from django.shortcuts import render, redirect
+from django.utils.http import url_has_allowed_host_and_scheme
+
 def login(request):
+    next_url = request.POST.get('next') or request.GET.get('next') or ''
+
     if request.method == 'POST':
         form = LoginForm(request.POST)
 
-
         if form.is_valid():
-            print(f"{form.cleaned_data=}")
-
             username = form.cleaned_data['username']
             password = form.cleaned_data['password']
 
-            user = auth.authenticate(request, username=username, password=password)
+            user = authenticate(request, username=username, password=password)
 
             if user is not None:
-                auth.login(request, user)
-                return HttpResponseRedirect(reverse('index'))
-            else:
-                form.add_error(None, 'Username or password is incorrect.')
+                auth_login(request, user)
+
+                if next_url and url_has_allowed_host_and_scheme(
+                    next_url,
+                    allowed_hosts={request.get_host()},
+                    require_https=request.is_secure(),
+                ):
+                    return redirect(next_url)
+                return redirect('index')
+
+            form.add_error(None, 'Username or password is incorrect.')
     else:
         form = LoginForm()
 
-    return render(request, 'core/login.html', context={'form': form})
+    return render(request, 'core/login.html', context={
+        'form': form,
+        'next': next_url,
+    })
 
 def signup(request):
     if request.method == 'POST':
