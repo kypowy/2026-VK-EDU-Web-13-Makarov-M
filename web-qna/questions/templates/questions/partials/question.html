@@ -7,11 +7,15 @@
         {% else %}
             <img src="{% static 'questions/img/default-avatar.png' %}" class="card-img-top avatar-img" alt="avatar">
         {% endif %}
-        <div class="d-flex flex-column align-items-center">
-            <button class="btn btn-sm btn-outline-success mb-1">↑</button>
-            <span>{{ question.rating }}</span>
-            <button class="btn btn-sm btn-outline-danger mt-1">↓</button>
-        </div>
+            <div class="vote d-flex flex-column align-items-center" data-vote="question-{{ question.pk }}">
+                <button class="btn btn-sm btn-outline-success mb-1 up{% if question.user_value == 1 %} active{% endif %}"
+                        data-rate="question" data-id="{{ question.pk }}" data-value="1">↑</button>
+
+                <span data-rating-for="question-{{ question.pk }}">{{ question.rating }}</span>
+
+                <button class="btn btn-sm btn-outline-danger mt-1 down{% if question.user_value == -1 %} active{% endif %}"
+                        data-rate="question" data-id="{{ question.pk }}" data-value="-1">↓</button>
+            </div>
     </div>
     <div class="card-body">
         <h4 class="card-title">

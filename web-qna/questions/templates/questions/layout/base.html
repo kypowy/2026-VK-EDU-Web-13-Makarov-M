@@ -26,12 +26,16 @@
               </div>
               {%if user.is_authenticated%}
               <div class="user-box">
-                <img class="avatar-img" src="https://github.com/kypowy.png" alt="avatar">
+                {% if user.profile.avatar %}
+                <img class="avatar-img" src={{ user.profile.avatar.url }} alt="avatar">
+                {% else %}
+                <img class="avatar-img" src="{% static 'questions/img/default-avatar.png' %}" alt="avatar">
+                {% endif %}
                 <div class = "user-box-text">
-                    <a id="user-name" href=""><h2>kypowy</h2></a>
+                    <a id="user-name" href="{% url "profile" %}"><h2>{{ user.get_username}}</h2></a>
                     <div>
                         <a href="{% url "profile" %}" class = "settings-ref">settings</a>
-                        <a href="" class = "logout-ref">log out</a>
+                        <a href="{% url "logout"%}" class = "logout-ref">log out</a>
                     </div>
                 </div>
               </div>
@@ -82,5 +86,6 @@
             <h4 class="mb-0">© 2026 t.me/kypowyn</h4>
         </footer>
             <script src="{% static "questions/bootstrap/js/bootstrap.min.js" %}"></script>
+            <script src="{% static 'questions/js/script.js' %}"></script>
     </body>
 </html>

@@ -142,7 +142,7 @@ class QuestionRate(models.Model):
     )
     value = models.SmallIntegerField(
         "оценка",
-        choices=[(1, "Плюс"), (-1, "Минус")],
+        choices=[(1, "Плюс"), (-1, "Минус"), (0, "Ноль")],
         default=1,
     )
 
@@ -176,7 +176,7 @@ class AnswerRate(models.Model):
     )
     value = models.SmallIntegerField(
         "оценка",
-        choices=[(1, "Плюс"), (-1, "Минус")],
+        choices=[(1, "Плюс"), (-1, "Минус"), (0, "Ноль")],
         default=1,
     )
 

@@ -1,6 +1,6 @@
 {% extends "questions/layout/base.html" %}
 {% load static %}
-
+{% load django_bootstrap5 %}
 {% block content %}
 <main class="col-12 col-lg-8 col-xl-9 flex-column d-flex">
 
@@ -18,18 +18,12 @@
     {% include 'questions/partials/pagination.html' %}
 
     <!-- ПОЛЕ ВВОДА ОТВЕТА -->
-    <div class="answer-form">
-        <div class="form-field d-flex flex-column gap-2">
-            <textarea class="form-control" id="fieldTextarea" rows="3" placeholder="Enter your answer here..."></textarea>
-            <div class="d-flex justify-content-between">
-                <div class="form-text">
-                    Observe the rules of propriety in your responses.
-                </div>
-                <button type="button" class="btn btn-success theme-primary btn-solid rounded">
-                    Answer
-                </button>
-            </div>
-        </div>
-    </div>
+{%if user.is_authenticated %}
+    <form class="answer-form" method="POST">
+                                {% csrf_token %}
+                                {% bootstrap_form form %}
+                                {% bootstrap_button button_type="submit" content="Ask!" %}
+    </form>
+{% endif %}
 </main>
 {% endblock %}
