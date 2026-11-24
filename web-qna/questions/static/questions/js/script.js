@@ -47,8 +47,9 @@ document.addEventListener('DOMContentLoaded', () => {
             try {
                 const response = await fetch(request);
 
-                if (response.redirected) {
-                    window.location.href = response.url;
+                if (response.status === 401) {
+                    const nextUrl = encodeURIComponent(window.location.pathname + window.location.search);
+                    window.location.href = `/login/?next=${nextUrl}`;
                     return;
                 }
                 if (!response.ok) throw new Error(response.status);

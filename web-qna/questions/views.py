@@ -8,6 +8,7 @@ from django.db.models import Sum
 import json
 from .forms import QuestionForm, AnswerForm
 from .models import *
+from functools import wraps
 
 from django.db.models import Subquery, OuterRef, IntegerField
 
@@ -113,8 +114,17 @@ def ask(request):
     return render(request, 'questions/ask_question.html', context={'form' : form})
 
 
+def ajax_login_required(view_func):
+    @wraps(view_func)
+    def _wrapped_view(request, *args, **kwargs):
+        if not request.user.is_authenticated:
+            return JsonResponse({'error': 'Authentication required'}, status=401)
+        return view_func(request, *args, **kwargs)
+    return _wrapped_view
+
+
 @require_POST
-@login_required
+@ajax_login_required
 def rateQuestion(request, question_id):
     question = get_object_or_404(Question.objects.detail(), pk=question_id)
     try:
@@ -150,7 +160,7 @@ def rateQuestion(request, question_id):
                          'user_value' : new_value})
 
 @require_POST
-@login_required
+@ajax_login_required
 def rateAnswer(request, answer_id):
     answer = get_object_or_404(Answer, pk=answer_id)
     try:
